@@ -24,26 +24,29 @@ document.getElementById("scrapeButton").addEventListener("click", function () {
 
 function scrapeProfile() {
   const nameElement = document.querySelector(
-    ".qYVRLPCjyOKnAgQzmXUbsDZgrcLSSOFihfKs"
+    ".inline.t-24.v-align-middle.break-words"
   );
   const name = nameElement ? nameElement.textContent.trim() : "No name found";
 
   const jobTitleElement = document.querySelector(
-    'div.rguopyxnsfpKsgZqiItnPoIdUxQZMuAPSmdPxg span[aria-hidden="true"]'
+    '.display-flex.align-items-center.mr1.t-bold span[aria-hidden="true"]'
   );
   const jobTitle = jobTitleElement
     ? jobTitleElement.textContent.trim()
     : "No job title found";
 
   const companyElement = document.querySelector(
-    ".BNYrioAyXastFSGytKbBNGGsBAEGqoFIlk"
+    ".display-flex.flex-column.full-width > span > span"
   );
   const companyName = companyElement
     ? companyElement.textContent.trim()
     : "No company name found";
 
+    const [companyf = "No first name", ...companyl] = companyName.split(" ");
+ companyl.join(" ") || "No last name";
+
   const locationElement = document.querySelector(
-    ".sDnWRTYdCVhMXgJCqpVQksJHhOVjjyiNwRZxFPs > span"
+    ".text-body-small.inline.t-black--light.break-words"
   );
 
   const location = locationElement
@@ -51,8 +54,9 @@ function scrapeProfile() {
     : "No location found";
   const [firstName = "No first name", ...lastNameParts] = name.split(" ");
   const lastName = lastNameParts.join(" ") || "No last name";
+  
   const email =
-    `${firstName.toLowerCase()}.${lastName.toLowerCase()}@${companyName.toLowerCase()}.com`
+    `${firstName.toLowerCase()}.${lastName.toLowerCase()}@${companyf.toLowerCase()}.com`
       .toString()
       .trim();
 
